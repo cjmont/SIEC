@@ -1,28 +1,24 @@
-== README
+== SIEC
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Sistema Integral para la gestion de Educacion Continua ESPOL.
 
-Things you may want to cover:
+Este sistema cuenta con lo siguiente:
 
-* Ruby version
+* Sistema de Ventas
 
-* System dependencies
+* Sistema de Gestion Academica
 
-* Configuration
+* Sistema Financiero, Contable
 
-* Database creation
+* Sistema de Gestion para Comunicacion y Marketing
+#ASPECTOS TECNICOS
 
-* Database initialization
+* Ruby On Rails 4.2
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* MySQL
 
 
-Please feel free to use a different markup language if you do not plan to run
+
+
+ec.espol.edu.ec
 <tt>rake doc:app</tt>.

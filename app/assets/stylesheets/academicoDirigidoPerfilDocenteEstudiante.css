@@ -1,0 +1,15 @@
+.personasDirigido,.estudiantesDirigido{
+	display: inline-flex;
+    margin: 1% 0%;
+}
+.controlPersonalizado{
+	width: 20% ;
+    margin-left: 1%;
+}
+.controlPersonalizadoPerfil{
+	width: 20% ;
+	margin-left: 1%;
+}
+.eliminarDocente,.eliminarPerfilesEstudiante,.eliminarDirigido{
+	margin-left: 1%;
+}

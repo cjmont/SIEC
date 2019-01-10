@@ -1,0 +1,113 @@
+<div id="academincos container">
+	<%= render template: "academico/_header" %>
+	<%= stylesheet_link_tag "academicoDirigidoPerfilDocenteEstudiante" %>
+	<%= stylesheet_link_tag "academicoNew" %>
+	<%= javascript_include_tag "formGeneral" %>
+	<%= javascript_include_tag "formPerfil" %> 
+	<div class="contenedor row content">
+		<%= render "menuIzquierda"%>
+		 <div class="container col-sm-9">
+		  	<div class="tab-content">
+		  		<div class="formContent form-group form-horizontal">
+					<h1 class="tituloNew">Perfil Docente</h1>
+					<div style="margin: 0% 43%;">
+						<button type="button" id="agregarPerfilDocente" class="btn btn-success agregarPerfilDocente"  data-toggle="tooltip">Agregar Perfil</button>
+					</div>
+
+					<form id="contenido1-form" action="#" method="POST" style="display: grid;    margin-left: 5%;">
+						<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+						<input type="hidden" class="idContenidos" name="idContenido" value=<%= @contenidoid %>>
+						<input type="hidden" id="cursos" name="cursos" value="<%= @curso %>">
+						<% if @tipos == "editar" && @perfilPersona.exists? %>
+							<div class="espacio1">
+								<% @perfilPersona.each do |perfil| %>
+									<div class="form-group form-group-lg">
+										<div class="personasDirigido col-sm-10">
+											<input  class="form-control persona control-personalizado  docente " type="hidden" name="ids"  value="<%= perfil.id %>">
+											<input  class="form-control persona control-personalizado requerido docente " type="text" name="docentes"  placeholder="Conocimiento" value="<%= perfil.texto %>">
+											<select id="perfil" class="form-control controlPersonalizadoPerfil  docente requerido"  name="perfil">
+												<% if perfil.tipo_requisito == "Recomendado" %>
+													<option value=""  disabled="disabled">Perfil</option>
+													<option selected="true" value="Recomendado" >Recomendado</option>
+													<option value="Indispensable" >Indispensable</option>
+												<% elsif  perfil.tipo_requisito == "Indispensable" %>
+													<option value=""  disabled="disabled">Perfil</option>
+													<option  value="Recomendado" >Recomendado</option>
+													<option selected="true" value="Indispensable" >Indispensable</option>
+												<% else %>
+													<option value="" selected="true" disabled="disabled">Perfil</option>
+													<option  value="Recomendado" >Recomendado</option>
+													<option  value="Indispensable" >Indispensable</option>
+												<% end %>
+												
+											</select>
+											<select id="tipo" class="form-control controlPersonalizado docente requerido"  name="tipo">
+												<% if perfil.tipo == "Viñeta" %>
+													<option value="" disabled="disabled">Tipo</option>
+													<option  selected="true" value="Viñeta" >Viñeta</option>
+													<option value="Párrafo" >Párrafo</option>
+												<% elsif  perfil.tipo == "Párrafo" %>
+													<option value="" disabled="disabled">Tipo</option>
+													<option value="Viñeta" >Viñeta</option>
+													<option  selected="true" value="Párrafo" >Párrafo</option>
+												<% else %>
+													<option value="" selected="true" disabled="disabled">Tipo</option>
+													<option value="Viñeta" >Viñeta</option>
+													<option value="Párrafo" >Párrafo</option>
+												<% end %>
+											</select>
+											<button type="button" class="btn btn-danger btn-xs eliminarDocente" onClick="eliminarPerfiles(this,<%= perfil.id %>)"><i class="material-icons">delete_forever</i></button>
+										</div>
+									</div>
+								<% end %>
+								
+							</div>
+						<% else %>
+							<div class="espacio1">
+							</div>
+						<% end %>
+						
+						<div class="contenedor-botones col-sm-10">
+							<div class="row">
+								<div class="col-md-3">
+									<button type="button" class="btn btn-lg btn-primary botones btn_atras" onClick="atras('<%= @atras %>')">Atras</button>
+								</div>
+								<div class="col-md-3">
+									<% if @tipos == "editar"  &&  @perfilPersona.exists? %>
+										<button type="button" class="btn btn-lg btn-primary botones btn_guardarYsalir"  onClick='botonEditarDocente("true")'>Guardar y Salir</button>
+									<% else %>
+										<button type="button" class="btn btn-lg btn-primary botones btn_guardarYsalir" onClick='botonCrearDocente("true")'>Guardar y Salir</button>
+									<% end %>
+								</div>
+								<div class="col-md-3">
+									<% if @tipos == "editar"  &&  @perfilPersona.exists? %>
+										<button type="button" class="btn btn-lg btn-primary botones btn_guardar"  onClick='botonEditarDocente("truefalse")'>Guardar</button>
+									<% else %>
+										<button type="button" class="btn btn-lg btn-primary botones btn_guardar" onClick='botonCrearDocente("truefalse")'>Guardar</button>
+									<% end %>
+								</div>
+								<div class="col-md-3">
+									<% if @tipos == "editar" &&  @perfilPersona.exists? %>
+										<button type="button" class="btn btn-lg btn-primary botones btn_siguiente" id="docente_boton_editar" onClick='botonEditarDocente("false")'>siguiente</button>
+									<% else %>
+										<button type="button" class="btn btn-lg btn-primary botones btn_siguiente" id="docente_boton" onClick='botonCrearDocente("false")'>siguiente</button>
+									<% end %>
+								</div>
+							</div>
+							
+							
+							
+
+							
+							
+							
+							
+						</div>
+						
+					</form>
+				</div>
+		  	</div>
+		</div>	
+	</div>
+				
+</div>

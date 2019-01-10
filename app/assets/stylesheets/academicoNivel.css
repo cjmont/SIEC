@@ -1,0 +1,17 @@
+.unidades, .subnidad{
+	display: inline-flex;
+    margin: 1% 0%;
+}
+.subnidad{
+	margin-left: 3%;
+}
+.num,.numSubnidad{
+	width: 20% !important;
+    margin-right: 1%;
+}
+
+.numeroHora,.numeroHorasubunidad{
+	width: 17% !important;
+    margin: 0% 1%;
+}
+

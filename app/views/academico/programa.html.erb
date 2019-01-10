@@ -1,0 +1,100 @@
+	<div id="academincos container">
+		<%= render template: "academico/_header" %>
+		<%= stylesheet_link_tag "academicoNew" %>
+		<%= javascript_include_tag "formPrograma" %>
+		<%= javascript_include_tag "formGeneral" %>
+		<div class="contenedor row content">
+			<%= render "menuIzquierda"%>
+			 <div class="container col-sm-9">
+			  	<div class="tab-content">
+			  		<div class="formContent">
+						<h1 class="tituloNew">Listado Curso</h1>
+						<section class="espacio2" style="margin: 1% 5%">
+									<table id="table_id_programa" class="table table-striped table-bordered hover" >
+										<thead>
+											<tr >
+												<th style="text-align:center;">NOMBRE</th>
+												<th style="text-align:center;">TIPO</th>
+											</tr>
+										</thead>
+										<tbody>
+											<% _valor = false %>
+											<%= puts @prospectoExistente %>
+											<% @listaProspct.each do |prospecto|%>
+												<% if @prospectoExistente != "" %>
+
+													<% @prospectoExistente.each do |existe|%>
+														<% if prospecto.id == existe.id %>
+															<% _valor = true %>
+															<% break %>
+														<% else %>
+															<% _valor = false %>
+														<% end %>
+													<% end %>
+													<% if _valor == false %>
+														<tr id="<%= prospecto.id %>" class="pointer">
+															<td style='text-align: center;' class="nombre"><%= prospecto.nombre %></td>
+															<td style='text-align: center;'><%= prospecto.tipo %></td>
+														</tr>
+													<% else %>
+														<tr id="<%= prospecto.id %>" class="pointer selected">
+															<td style='text-align: center;' class="nombre"><%= prospecto.nombre %></td>
+															<td style='text-align: center;'><%= prospecto.tipo %></td>
+														</tr>
+													<% end %>
+												<% else %>
+													<tr id="<%= prospecto.id %>" class="pointer">
+														<td style='text-align: center;' class="nombre"><%= prospecto.nombre %></td>
+														<td style='text-align: center;'><%= prospecto.tipo %></td>
+													</tr>
+												<% end %>
+											<% end %>
+										</tbody>
+									</table>
+								</section>
+							<h4>Numero de prospecto seleccionado: <strong id="numProspecto"></strong></h4>
+						<button type="button" id="agregarPrograma" class="agregarPrograma" onClick="crearCurso()">Crear Curso</button>
+						
+						<form id="programa-form" action="#" method="POST" style="display: grid;margin-top: 1%">
+							<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+							<input type="hidden" class="prospectoId" value="<%= @idProspecto %>">
+							<input type="hidden" class="tipo"  value="<%= @tipos %>">
+							<section style="display: flow-root;">
+							<div class="espacio3" style="margin: 0% 20%;">
+								<% if @prospectoExistente != "" %>
+									<% @prospectoExistente.each do |existe|%>
+										<div class="form-group form-group-lg">
+											<div class="programa col-sm-10" style="display: inline-flex;margin-bottom:1%">
+												<input id="<%= existe.id %>" class="form-control  control-programa requerido" name="campo-programa" type="text"  placeholder="Nombre de Curso" value="<%= existe.nombre %>" readonly>
+												<button type="button" class="btn btn-danger btn-xs eliminarPrograma" onClick="eliminarCursos(this)"><i class="material-icons">highlight_off</i></button>
+											</div>
+										</div>
+									<% end %>
+								<% end %>
+							</div>
+						</section>
+							<div class="contenedor-botones col-sm-10">
+								<div class="row">
+									<div class="col-md-3">
+										<button type="button" class="btn btn-lg btn-primary botones btn_atras" onClick="atras('<%= @atras %>')">Atras</button>
+									</div>
+									<div class="col-md-3">
+										<button type="button" class="btn btn-lg btn-primary botones btn_guardarYsalir" onClick="boton('true')" >
+									Guardar y Salir</button>
+									</div>
+									<div class="col-md-3">
+										<button type="button" class="btn btn-lg btn-primary botones btn_guardar" onClick="boton('truefalse')">Guardar</button>
+									</div>
+									<div class="col-md-3">
+										<button type="button" class="btn btn-lg btn-primary botones btn_siguiente" id="programa_boton" onClick="boton('false')">Enviar</button>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+			  	</div>
+			</div>
+					
+		</div>
+					
+	</div>

@@ -1,0 +1,94 @@
+#crear{
+    float: right;
+    font-size: 0em;
+    margin: 1% 0% 1% 1%;
+}
+
+.ver,.eliminar,.editar{
+	height: 4vh;
+    width: 30%;
+    margin-right: 3%;
+    padding: 0% !important;
+    font-size: 0em;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #008ca5;
+    border-color: #008ca5;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #027084;
+    border-color: #027084;
+}
+.btn-primary:active{
+    color: #fff;
+    background-color: #027084;
+    border-color: #027084;
+}
+
+.contenedor{
+	height: auto;
+	width: 100%;
+	margin: 0% !important;
+}
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover{
+	color: #151515;
+    background-color: #9E9E9E;
+	border-bottom: solid 6px white;
+    border-top: solid 6px white;
+}
+.nav-pills>li>a{
+	text-align: center;
+	color: black;
+	font-size: 1.5em;
+}
+/* Set gray background color and 100% height */
+.sidenav {
+    background-color: #dedede;
+    padding: 0%;
+    height: 75vh;
+    width: 17%;
+}
+a:focus, a:hover {
+    text-decoration: none;
+}
+
+.formSondeo{
+    display: inline-flex;
+    margin-bottom: 2%;
+}
+.formSondeo label{
+    margin-bottom: 0%; 
+    margin-right: 1%;
+
+}
+#sondeoForm{
+    width: 100%;
+    display: grid;
+    margin: 4% 4% 1%;
+    border: 3px solid #008ca5;
+    border-radius: 10px;
+    padding: 3%;
+    box-shadow: -1px 10px 11px 0px rgba(0,0,0,0.81);
+}
+.formSondeo #tipo, .formSondeo #linea_negocio{
+    width: 33%;
+}
+.formSondeo #tipo{
+    margin-right: 2%;
+}
+
+@media screen and (max-width: 767px) {
+    .sidenav {
+        height: auto;
+        padding: 15px;
+    }
+    .row.content {height: auto;} 
+}
+@media (min-width: 768px){
+    .modal-dialog {
+        width: 758px;
+    }
+}

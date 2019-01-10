@@ -1,0 +1,48 @@
+<%= render template: "academico/_modalVer" %>
+
+<div id="academincos container">
+	<%= render template: "academico/_header" %>
+
+
+	<div class="contenedor row content">
+		<div class="sidenav col-sm-3 " >
+			<ul class="nav nav-pills nav-stacked">
+				<li id="prospecto_li"><a id="prospectos" data-toggle="tab" href="#prospecto">Prospecto</a></li>
+				<li><%= link_to 'Sondeo', "/academico/sondeo"%></li>
+			</ul>
+		</div>
+		<div class="container col-sm-9">
+			<div class="tab-content">
+				
+				<div id="prospecto" class="tab-pane fade">
+					<div id="botones">
+						<button id="botones-t" type="button" class="botton btn btn-default">Todo</button>      
+						<button id="botones-e" type="button" class="botton btn btn-default">En edición</button>
+						<button id="botones-pap" type="button" class="botton btn btn-default">Por aprobar</button>
+						<button id="botones-ap" type="button" class="botton btn btn-default">Aprobado</button>
+						<button id="botones-a" type="button" class="botton btn btn-default">Publicado</button>
+						<button id="botones-ina" type="button" class="botton btn btn-default">Inactivos</button>
+						<form id="crearProspecto" action="academico/prospecto/crear" method="GET">
+							<button type="submit" id="crear" class="btn btn-success" data-toggle="tooltip" data-placement="left" title="Crear Prospecto"><i class="material-icons">add_circle_outline</i></button>
+						</form>
+					</div>
+				</div> 
+				<div id="sondeo" class="tab-pane fade">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<%= javascript_include_tag "academicos" %> 
+<%= javascript_include_tag "formGeneral" %>
+
+<%= stylesheet_link_tag "academico" %>
+
+
+
+
+
+
+
+
+

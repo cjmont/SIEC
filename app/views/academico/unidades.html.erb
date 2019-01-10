@@ -1,0 +1,96 @@
+		<div id="academincos container">
+			<%= render template: "academico/_header" %>
+			<%= stylesheet_link_tag "academicoNew" %>
+			<%= stylesheet_link_tag "academicoNivel" %>
+			<%= javascript_include_tag "formGeneral" %>
+			<%= javascript_include_tag "formNivel" %> 
+			<div class="contenedor row content">
+				<%= render "menuIzquierda"%>
+				 <div class="container col-sm-9">
+				  	<div class="tab-content">
+				  		<div class="formContent form-horizontal form-group">
+							<% if @tipos == "crear" %>
+								<h1 class="tituloNew">Crear Unidades</h1>
+							<% elsif @tipos == "editar" %>
+								<h1 class="tituloNew">Editar Unidades</h1>
+							<% end %>
+							<div style="margin: 0% 43%;">
+								<button type="button" id="agregarUnidad" class="btn btn-success agregarUnidad" >Agregar Unidad</button>
+							</div>
+							<form id="Nivel-form" action="#" method="POST" style="display: grid;    margin-left: 5%;">
+							<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+							<input type="hidden" id="idContenidos" name="idContenido" value=<%= @contenidoid %>>
+							<input type="hidden" id="cursos" name="cursos" value="<%= @curso %>">
+							<% if @tipos == "crear" %>
+								<div class="espacio">
+								</div>
+							<% elsif @tipos == "editar" %>
+								<div class="espacio">
+									<% if @nivel != ""%>
+										<% @nivel.each do |nivel| %>
+											<div class="form-group form-group-lg content_nivel">
+												<div class="unidades col-sm-10">
+									  				<input  class="form-control num control-personalizado nivel" " type="hidden" name="ids"  value="<%= nivel.id%>">	
+									  				<input class="form-control num control-personalizado requerido nivel" type="number" placeholder="Unidad" name="numUnidad" min=0 value="<%= nivel.unidad%>">
+									  				<input class="form-control unidadesText control-personalizado requerido nivel" type="text" placeholder="Titulo" name="nombreUnidad" value="<%= nivel.nombre%>">
+									  				<input class="form-control numeroHora control-personalizado requerido nivel" type="number" placeholder="Horas" name="numHoraUnidad" min=0 value="<%= nivel.credito%>">
+									  				<button type="button" class="btn btn-success aniadir" data-toggle="tooltip" data-placement="left" title="Añadir subunidad" onClick="agregarSubUnidades(this)"><i class="material-icons">add_circle_outline</i></button>
+									  				<button type="button" class="btn btn-danger btn-xs eliminarNivel" onClick="eliminar(this,<%= nivel.id%>)"><i class="material-icons">delete_forever</i></button>
+									  			</div>
+									  			<div class="subunidades form-group form-group-lg">
+									  			<% if @subnivel.length > 0 %>
+									  				<% @subnivel.each do |subnivel| %>
+									  					<% if subnivel.nivel_id == nivel.id%>
+									  						<div class="subnidad col-sm-10">
+																<input  class="form-control numSubnidad control-personalizado subnivel" type="hidden" name="subids"  value="<%= subnivel.id%>">
+																<input class="form-control numSubnidad control-personalizado requerido subnivel" type="number" placeholder="SubUnidad" name="numSubUnidad" min=0 value="<%= subnivel.unidad%>">
+																<input class="form-control subunidadesText control-personalizado requerido subnivel" type="text" placeholder="Titulo" name="nombreSubUnidad" value="<%= subnivel.nombre%>">
+																<input class="form-control numeroHorasubunidad control-personalizado requerido subnivel" type="number" placeholder="Horas" name="numHoraSubUnidad" min=0 value="<%= subnivel.credito%>">
+																<button type="button" class="btn btn-danger btn-xs eliminarSubNivel" onClick="eliminarSubUnidad(this,<%= subnivel.id%>)"><i class="material-icons">delete_forever</i></button>
+															</div>
+									  					<% end %>
+													<% end %>
+												<% end %>
+									  			</div>
+									  		</div>
+										<% end %>
+									<% end%>
+									
+								</div>
+							<% end %>
+
+								<div class="contenedor-botones col-sm-10">
+									<div class="row">
+									<div class="col-md-3">
+										<button type="button" class="btn btn-lg btn-primary botones btn_atras" onClick="atras('<%= @atras %>')">Atras</button>
+									</div>
+									<div class="col-md-3">
+										<% if @tipos == "crear" %>
+											<button type="button" class="btn btn-lg btn-primary botones btn_guardarYsalir" onClick="botonCrear('true')">Guardar y Salir</button>
+										<% elsif @tipos == "editar" %>
+											<button type="button" class="btn btn-lg btn-primary botones btn_guardarYsalir" onClick="botonEditar('true')">Guardar y Salir</button>
+										<% end %>
+									</div>
+									<div class="col-md-3">
+										<% if @tipos == "crear" %>
+											<button type="button" class="btn btn-lg btn-primary botones btn_guardar" onClick="botonCrear('truefalse')">Guardar</button>
+										<% elsif @tipos == "editar" %>
+											<button type="button" class="btn btn-lg btn-primary botones btn_guardar" onClick="botonEditar('truefalse')">Guardar</button>
+										<% end %>
+									</div>
+									<div class="col-md-3">
+										<% if @tipos == "crear" %>
+											<button type="button" class="btn btn-lg btn-primary botones btn_siguiente "  id="boton_unidad" onClick="botonCrear('false')">siguiente</button>
+										<% elsif @tipos == "editar" %>
+											<button type="button" class="btn btn-lg btn-primary botones btn_siguiente "  id="boton_unidad" onClick="botonEditar('false')">siguiente</button>
+										<% end %>
+									</div>
+								</div>
+								</div>
+							</form>
+						</div>
+				  	</div>
+				</div>	
+			</div>
+						
+		</div>

@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  modalidad: MyString
+  certificado: MyString
+  justificacion: MyString
+  objetivo: MyString
+  descripcion: MyText
+  dirigido_a: MyText
+  credito: 1
+  requisito_instructor: MyString
+  metodologia: MyString
+  version: 1
+  objetivo_especifico: MyString
+  precio: 1
+
+two:
+  modalidad: MyString
+  certificado: MyString
+  justificacion: MyString
+  objetivo: MyString
+  descripcion: MyText
+  dirigido_a: MyText
+  credito: 1
+  requisito_instructor: MyString
+  metodologia: MyString
+  version: 1
+  objetivo_especifico: MyString
+  precio: 1

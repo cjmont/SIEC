@@ -1,0 +1,91 @@
+<%= render template: "academico/_modalVer" %>
+
+<div id="academincos container">
+	<%= render template: "academico/_header" %>
+
+
+	<div class="contenedor row content">
+		<div class="sidenav col-sm-3 " >
+			 <ul class="nav nav-pills nav-stacked">
+			    <li id="prospecto_li"><%= link_to 'Prospecto', "/academico"%></li>
+			    <li id="sondeo_li"><a id="sondeos" data-toggle="tab" href="#sondeo">Sondeo</a></li>
+			</ul>
+		</div>
+		<div class="container col-sm-9">
+			<div class="tab-content">
+				<div id="prospecto" class="tab-pane fade">
+				</div>
+			    <div id="sondeo" class="tab-pane fade">
+			    	<div class="btn-group" role="group">
+				    
+			    	 <select id='selectSondeo1' name="select-simples-placeholder sondeoSelec" class="ls-select" placeholder="Seleccion de Prospectos" onChange="selectSondeo(this)">
+			    	 		<option value="" selected="true" disabled="disabled"></option>
+						    <!--option value="existente">Prospecto existente</option-->
+						    <option value="nuevo">Prospecto Nuevo</option>
+					</select>
+			     	<form id='sondeoForm' action="#" method="post"  style="display: none;">
+			     		<div class="formSondeo">
+			     			<label for="area"> Area</label>
+					    	<select id="area" class="form-control control-personalizado requerido"  name="area">
+						    		<option value="" selected="true" disabled="disabled">Área</option>
+								<% @area.each do |area| %>
+									<option value="<%= area.id %>" ><%= area.nombre %></option>
+								<% end %> 
+							</select>
+			     		</div>
+						<div class="formSondeo">
+							<label for="tipo">Tipo</label>
+							<select id="tipo" class="form-control control-personalizado requerido"  name="tipo">
+								<option value="" selected="true" disabled="disabled">Tipo de Curso</option>
+							    <option value="Curso" >Curso</option>
+							    <option value="Programa" >Programa</option>
+							    <option value="Diplomado" >Diplomado</option>  
+							</select>
+
+							<label for="linea_negocio"> Linea de Negocio</label>
+							<select id="linea_negocio" class="form-control control-personalizado requerido"  name="linea_negocio">
+									<option value="" selected="true" disabled="disabled">Linea de Negocio</option>
+							        <option value="Abierto" >Abierto</option>
+							        <option value="Corporativo" >Corporativo</option> 
+							</select>
+						</div>
+						<div class="formSondeo">
+							<label for="nombre">Nombre</label>
+							<input id="nombre" class="form-control control-personalizado requerido" type="text" name="nombre" placeholder="Nombre" value="" >
+						</div>
+						<div class="formSondeo">
+							<label for="">Dirigido a</label>
+							<input id="dirigidos" class="form-control control-personalizado requerido" type="text" name="dirigido" placeholder="Dirigido" value="" >
+						</div>
+						<div class="formSondeo">
+							<label for="descripcion">Descripcion</label>
+							<textarea id="descripcion" class="form-control control-personalizado" rows="4" cols="50" name="descripcion" placeholder="Descripcion">
+							</textarea>
+						</div>
+
+						<div style="display: flex; margin: 1% 0%">
+							<label for="presenciales">Horas Presenciales</label>
+							<input id="presenciales" class="form-control control-personalizado requerido" min=0  type="number" name="presenciales" placeholder="# Horas presenciales" value="">
+							<label for="virtuales">Horas Virtuales</label>
+							<input id="virtuales" class="form-control control-personalizado requerido" min=0  type="number" name="virtuales" placeholder="# Horas virtuales" value="">
+
+							<label for="autonomas">Horas Autonomas</label>
+							<input id="autonomas" class="form-control control-personalizado requerido" min=0  type="number" name="autonomas" placeholder="# Horas autonomas" value="">
+						</div>
+
+						<input id="idProspecto" type="hidden" name="id" value="">
+						<div class="formSondeo">
+							<label for="totales">Horas Totales</label>
+							<input id="totales" class="form-control control-personalizado " min=0  type="number" name="Totales" placeholder="# Horas totales" value="" readonly>
+						</div>
+						<button type="button" class="btn btn-lg btn-primary boton-enviar"><i class="material-icons">save</i>Enviar</button>
+			     	</form>
+			     
+			    </div>
+ 			 </div>
+		</div>
+	</div>
+</div>
+<%= javascript_include_tag "sondeo" %> 
+<%= javascript_include_tag "formGeneral" %> 
+<%= stylesheet_link_tag "academico" %>

@@ -1,0 +1,2 @@
+module AcademicoHelper
+end

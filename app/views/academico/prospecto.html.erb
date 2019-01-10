@@ -1,0 +1,133 @@
+
+<div class="academincos">
+	<%= render "header" %>
+	<section id="contendor-registro">
+		  <div class="contenedor row content">
+		  		<%= render "menuIzquierda"%>
+		  		<div class="container col-sm-9">
+		  			<div class="tab-content">
+		  				<section class="formContent">
+						
+							<% if @tipos == "editar" %>
+								<h1 class="tituloNew">Editar <%= @prospectos.nombre %> </h1>
+								<form id="prospecto-form" class="form-horizontal" action="/academico/editar" method="POST">
+							<% else %>
+								<h1 class="tituloNew">Crear Prospecto</h1>
+								<form id="prospecto-form" class="form-horizontal" action="/academico/create" method="POST">
+							<% end %>
+							
+								<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+								<% if @tipos == "editar" %>
+									<input type="hidden" name="id" value="<%= @prospectos.id %>">
+								<% end %>
+								<div class="form-group form-group-lg">
+									 <div class="col-sm-10">
+									 	<% if @tipos == "editar" %>
+									 		<input id="nombre" class="form-control control-personalizado requerido" type="text" name="nombre" placeholder="Nombre" value="<%= @prospectos.nombre %>" >
+									 	<% else %>
+									 		<input id="nombre" class="form-control control-personalizado requerido" type="text" name="nombre" placeholder="Nombre">
+									 	<% end %>
+									 </div>
+									
+								</div>
+								<div class="form-group form-group-lg">
+									<div class="col-sm-10">
+										<% if @tipos == "editar" %>
+											<select id="linea_negocio" class="form-control control-personalizado requerido"  name="linea_negocio">
+												<option value="" selected="true" disabled="disabled">Linea de Negocio</option>
+								                <option value="Abierto" >Abierto</option>
+								                <option value="Corporativo" >Corporativo</option>  
+								            </select>
+								            <script type="text/javascript">
+												$("#linea_negocio option[value="+ "<%= @prospectos.linea_negocio %>" +"]").attr("selected",true);
+											</script>
+										<% else %>
+											<select id="linea_negocio" class="form-control control-personalizado requerido"  name="linea_negocio" >
+												<option value="" selected="true" disabled="disabled">Linea de Negocio</option>
+								                <option value="Abierto" >Abierto</option>
+								                <option value="Corporativo" >Corporativo</option>  
+								            </select>
+										<% end %>
+						             </div>
+								</div>
+								<div class="form-group form-group-lg">
+									<div class="col-sm-10">
+										<% if @tipos == "editar" %>
+											
+											<select id="tipo" class="form-control control-personalizado requerido"  name="tipo">
+												<option value="" selected="true" disabled="disabled">Tipo de Curso</option>
+								                <option value="Curso" >Curso</option>
+								                <option value="Programa" >Programa</option>
+								                <option value="Diplomado" >Diplomado</option>
+								                <option value="Charla" >Charla</option>  
+								                <option value="Webinario" >Webinario</option>  
+								            </select>
+								            <script type="text/javascript">
+								            	//SELECCIONAR OPCIONES CUANDO SE CARGA LA BASE
+												$("#tipo option[value="+ "<%= @prospectos.tipo %>" +"]").attr("selected",true);
+											</script>
+							            <% else %>
+								            <select id="tipo" class="form-control control-personalizado requerido"  name="tipo">
+													<option value="" selected="true" disabled="disabled">Tipo de Curso</option>
+									                <option value="Curso" >Curso</option>
+									                <option value="Programa" >Programa</option>
+									                <option value="Diplomado" >Diplomado</option>
+									                <option value="Charla" >Charla</option>  
+								                	<option value="Webinario" >Webinario</option>   
+									            </select>
+							            <% end %>
+
+						             </div>
+								</div>
+								<div class="form-group form-group-lg">
+									<div class="col-sm-10">
+										<% if @tipos == "editar" %>
+											<select id="area" class="form-control control-personalizado requerido"  name="area">
+												<option value="" selected="true" disabled="disabled">Área</option>
+												<% @area.each do |area| %>
+													<option value="<%= area.id %>" ><%= area.nombre %></option>
+												<% end %> 
+								            </select>
+								            <script type="text/javascript">
+												$("#area option[value="+ "<%= @prospectos.area_id %>" +"]").attr("selected",true);
+											</script>
+								            
+								        <% else %>
+								        	<select id="area" class="form-control control-personalizado requerido"  name="area">
+												<option value="" selected="true" disabled="disabled">Área</option>
+												<% @area.each do |area| %>
+													<option value="<%= area.id %>" ><%= area.nombre %></option>
+												<% end %> 
+								            </select>
+								        <% end %>
+						             </div>
+									
+								</div>
+								<div class="contenedor-botones col-sm-10">
+									<div class="row">
+									  <div class="col-md-3">
+									  	<button type="button" class="btn btn-lg btn-primary botones btn_atras" onClick="atras('<%= @atras %>')">Atras</button></div>
+									  <div class="col-md-3">
+									  	<button type="button" id="salir_Guardar" class="btn btn-lg btn-primary botones btn_guardarYsalir">Guardar y Salir</button></div>
+									  <div class="col-md-3">
+									  	<button type="button" id="Guardar" class="btn btn-lg btn-primary botones btn_guardar">Guardar</button></div>
+									  <div class="col-md-3">
+									  	<button type="button" class="btn btn-lg btn-primary botones btn_siguiente" id="siguiente_prospecto">siguiente</button></div>
+									</div>
+									
+									
+								</div>
+							</form>
+						</section>
+					</div>
+			  			
+				</div>
+				
+		  </div>
+	</section>
+	
+</div>
+
+<%= javascript_include_tag "formNew" %>
+<%= javascript_include_tag "formGeneral" %>
+<%= stylesheet_link_tag "academicoNew" %>

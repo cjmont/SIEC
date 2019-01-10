@@ -1,0 +1,42 @@
+<div id="comunicacion container">
+	<%= render template: "comunicacion/_header" %>
+
+	<div id="contenedor row content">
+		<div class="sidenav col-sm-3 " >
+			 <ul class="nav nav-pills nav-stacked">
+			    <li><a id="solicitudes" data-toggle="tab" href="#sondeo">Mercadeo</a></li>
+			    <!--li><a data-toggle="tab" href="#menu3">Menu 3</a></li-->
+			</ul>
+		</div>
+		<div class="container col-sm-9">
+			<div class="tab-content">
+				<div id="inicio"></div>
+			    <div id="sondeo" class="tab-pane fade">
+			  		<div id="botones">
+						<button id="botTodos" type="button" class="botton btn btn-default">Todo</button>
+					</div>
+				</div>
+				<div id="sondeos">
+					
+				</div>
+ 			 </div>
+		</div>
+	</div>
+</div>
+<%= javascript_include_tag "js/dataTables.bootstrap.min" %>
+<%= javascript_include_tag "js/dataTables.bootstrap4.min" %>
+<%= javascript_include_tag "js/dataTables.foundation.min" %>
+<%= javascript_include_tag "js/dataTables.jqueryui.min" %> 
+<%= javascript_include_tag "js/datatables.min" %> 
+<%= javascript_include_tag "js/dataTables.semanticui.min" %> 
+<%= javascript_include_tag "js/jquery.dataTables.min" %>
+<%= javascript_include_tag "comunicaciones" %>
+
+<%= stylesheet_link_tag "boostrap/dataTables.bootstrap.min" %>
+<%= stylesheet_link_tag "boostrap/dataTables.bootstrap4.min" %>
+<%= stylesheet_link_tag "boostrap/dataTables.foundation.min" %>
+<%= stylesheet_link_tag "boostrap/dataTables.jqueryui.min" %>
+<%= stylesheet_link_tag "boostrap/datatables.min" %>
+<%= stylesheet_link_tag "boostrap/dataTables.semanticui.min" %>
+<%= stylesheet_link_tag "boostrap/jquery.dataTables.min" %>
+<%= stylesheet_link_tag "comunicacion" %>

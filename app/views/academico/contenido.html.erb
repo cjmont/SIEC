@@ -1,0 +1,182 @@
+<div class="academincos" >
+	<%= render template: "academico/_header" %>
+	<%= stylesheet_link_tag "academicoContenido" %>
+	<%= stylesheet_link_tag "academicoNew" %>
+	<%= javascript_include_tag "formGeneral" %>
+	<%= javascript_include_tag "formContenido" %>
+	<div class="contenedor row content">
+		<%= render "menuIzquierda"%>
+		 <div class="container col-sm-9">
+		  	<div class="tab-content">
+		  		<div class="formContent">
+			<% if @tipos == "editar" %>
+				<h1 class="tituloNew">Editar Contenido</h1>
+			<% else %>
+				<h1 class="tituloNew">Crear Contenido</h1>
+			<% end %>
+			
+				  <form id="contenido1-form" action="" method="POST" style="display: grid;">
+				  	<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+				  	<div class="form-group form-group-lg">
+				  		<input type="hidden" name="idPros" value="<%= @prospectID %>" readonly>
+				  		<input type="hidden" name="cursos" value="<%= @curso %>" readonly>
+				  		<% if @tipos == "editar" %>
+				  			<input type="hidden" name="idContenido" value="<%= @contenido.id %>">
+						 <% end %>
+
+						<div class="col-sm-10">
+							<% if @tipos == "editar"%>
+								<select id="modalidad" class="form-control control-personalizado requerido"  name="modalidad" placeholder="Modalidad">
+									  <option value="" selected="true" disabled="disabled">Modalidad</option>
+								      <option value="Presencial" >Presencial</option>
+								 </select>
+								  <script type="text/javascript">
+								  	$("#modalidad option[value="+"<%= @contenido.modalidad %>"+"]").attr("selected",true);
+								  </script>
+							 <% else %>
+							 	<select id="modalidad" class="form-control control-personalizado requerido"  name="modalidad" placeholder="Modalidad">
+									  <option value="" selected="true" disabled="disabled">Modalidad</option>
+								      <option value="Presencial" >Presencial</option>
+								 </select>
+							 <% end %>
+						</div>	
+					</div>
+					<div class="form-group form-group-lg">
+						<div class="col-sm-10">
+							<% if @tipos == "editar" %>
+								<select id="certificado" class="form-control control-personalizado requerido"  name="certificado" value="<%= @contenido.certificado %>">
+									  <option value="" selected="true" disabled="disabled">Tipo de certificado</option>
+								      <option value="Aprobación" >Aprobación</option>
+								      <option value="Participación" >Participación</option>
+
+								 </select>
+								 <script type="text/javascript">
+								  	$("#certificado option[value="+ "<%= @contenido.certificado %>" +"]").attr("selected",true);
+								  </script>
+							<% else %>
+								<select id="certificado" class="form-control control-personalizado requerido"  name="certificado">
+									  <option value="" selected="true" disabled="disabled">Tipo de certificado</option>
+								      <option value="Aprobación" >Aprobación</option>
+								      <option value="Participación" >Participación</option>
+								 </select>
+							 <% end %>
+							
+						</div>	
+					</div>
+					<div class="form-group form-group-lg" style="display:  inline-flex;">
+						<div class="col-sm-10 horas">
+							<% if @tipos == "editar"  %>
+								<input id="presenciales" class="form-control control-personalizado " min=0  type="number" name="presenciales" placeholder="# Horas presenciales" value="<%= @contenido.horas_presenciales %>"  >
+							<% else %>
+								<input id="presenciales" class="form-control control-personalizado " min=0  type="number" name="presenciales" placeholder="# Horas presenciales">
+							 <% end %>
+							
+						</div>
+						<div class="col-sm-10 horas">
+							<% if @tipos == "editar" %>
+								<input id="autonomas" class="form-control control-personalizado " min=0  type="number" name="autonomas" placeholder="# Horas autonomas" value="<%= @contenido.horas_autonomas %>">
+							<% else %>
+								<input id="autonomas" class="form-control control-personalizado " min=0  type="number" name="autonomas" placeholder="# Horas autonomas">
+							 <% end %>
+							
+						</div>	
+						<div class="col-sm-10 horas">
+							<% if @tipos == "editar" %>
+								<input id="virtuales" class="form-control control-personalizado " min=0  type="number" name="virtuales" placeholder="# Horas virtuales" value="<%= @contenido.horas_virtuales %>">
+							<% else %>
+								<input id="virtuales" class="form-control control-personalizado " min=0  type="number" name="virtuales" placeholder="# Horas virtuales">
+							 <% end %>
+							
+						</div>
+					</div>
+					<div class="form-group form-group-lg">
+						<div class="col-sm-10">
+							<% if @tipos == "editar"  %>
+								<textarea id="metodologia" class="form-control control-personalizado" rows="4" cols="50" name="metodologia" placeholder="Metodologia" ><%= @contenido.metodologia %></textarea>
+							<% else %>
+								<textarea id="metodologia" class="form-control control-personalizado" rows="4" cols="50" name="metodologia" placeholder="Metodologia"></textarea>
+							 <% end %>
+							
+						</div>	
+					</div>
+					<div class="form-group form-group-lg">
+						<div class="col-sm-10">
+							<% if @tipos == "editar" %>
+								<textarea id="objetivo" class="form-control control-personalizado" rows="4" cols="50" name="objetivo" placeholder="Objetivo del curso"><%= @contenido.objetivo %></textarea>
+							<% else %>
+								<textarea id="objetivo" class="form-control control-personalizado" rows="4" cols="50" name="objetivo" placeholder="Objetivo del curso"></textarea>
+							 <% end %>
+							
+						</div>	
+					</div>
+					<div class="form-group form-group-lg">
+						<div class="col-sm-10">
+							<% if @tipos == "editar" %>
+								<textarea id="objetivoEsp" class="form-control control-personalizado" rows="4" cols="50" name="objetivoEsp" placeholder="Objetivo especifico del curso"><%= @contenido.objetivo_especifico %></textarea>
+							<% else %>
+							    <textarea id="objetivoEsp" class="form-control control-personalizado" rows="4" cols="50" name="objetivoEsp" placeholder="Objetivo especifico del curso"></textarea>
+							 <% end %>
+							
+						</div>	
+					</div>
+					<div class="form-group form-group-lg">
+						<div class="col-sm-10">
+							<% if @tipos == "editar" %>
+								<textarea id="justificacion" class="form-control control-personalizado" rows="4" cols="50" name="justificacion" placeholder="Justificacion"><%= @contenido.justificacion %></textarea>
+							<% else %>
+								<textarea id="justificacion" class="form-control control-personalizado" rows="4" cols="50" name="justificacion" placeholder="Justificacion"></textarea>
+							 <% end %>
+							
+						</div>	
+					</div>
+					<div class="form-group form-group-lg">
+						<div class="col-sm-10">
+							<% if @tipos == "editar"%>
+								<textarea id="descripcion" class="form-control control-personalizado" rows="4" cols="50" name="descripcion" placeholder="Descripcion"><%= @contenido.descripcion %></textarea>
+							<% else %>
+								<textarea id="descripcion" class="form-control control-personalizado" rows="4" cols="50" name="descripcion" placeholder="Descripcion"></textarea>
+							 <% end %>
+							
+						</div>	
+					</div>
+					<div class="contenedor-botones col-sm-10">
+						<div class="row">
+							<div class="col-md-3">
+								<button type="button" class="btn btn-lg btn-primary botones  btn_atras" onClick="atras('<%= @atras %>')">Atras</button>
+							</div>
+							<div class="col-md-3">
+								<% if @tipos == "editar"  %>
+									<button type="button" class="btn btn-lg btn-primary botones btn_guardarYsalir" 
+									onClick="guardar('editarContenido','salir')" >Guardar y Salir</button>
+								<% else %>
+									<button type="button" class="btn btn-lg btn-primary botones btn_guardarYsalir" 
+									onClick="guardar('crearContenido','salir')">Guardar y Salir</button>
+								<% end %>
+							</div>
+							<div class="col-md-3">
+								<% if @tipos == "editar"  %>
+									<button type="button" class="btn btn-lg btn-primary botones btn_guardar" 
+									onClick="guardar('editarContenido','guardar')" >Guardar</button>
+								<% else %>
+									<button type="button" class="btn btn-lg btn-primary botones btn_guardar" 
+									onClick="guardar('crearContenido','guardar')">Guardar</button>
+								<% end %>
+							</div>
+							<div class="col-md-3">
+								<% if @tipos == "editar" && %>
+									<button type="button" class="btn btn-lg btn-primary botones btn_siguiente" id="boton_siguiente_editar" onClick="siguiente('editarContenido')" >siguiente</button>
+								<% else %>
+									<button type="button" class="btn btn-lg btn-primary botones btn_siguiente" id="boton_siguiente" onClick="siguiente('crearContenido')">siguiente</button>
+								<% end %>
+							</div>
+						</div>
+					</div>
+					
+				  </form>
+		</div>
+		  	</div>
+		</div>
+			
+		
+	</div>
+</div>	

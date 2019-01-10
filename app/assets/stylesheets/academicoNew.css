@@ -1,0 +1,52 @@
+.tituloNew{
+	font-family: sans-serif;
+    text-align: left;
+    color: #1c1c68;
+    border-left: #1c1c68 solid 20px;
+    padding-left: 1%;
+    margin-bottom: 2%;
+    margin-top: 2%;
+    margin-left: 2%;
+}
+.atras, .atras:hover{
+	color: white;
+	text-decoration: none;
+}
+
+.formContent{
+	width: 100%;
+
+}
+#prospecto-form{
+	margin: 0% 6%;
+}
+.botones{
+	background-color: #1c1c68 !important;
+	border-color: #171758 !important;
+	margin-left: : 10%;
+}
+.botones:hover{
+	background-color: #8383a2 !important;
+
+}
+.controlPersonalizado:focus,.control-personalizado:focus{
+	    border-color: #1c1c68 !important;
+}
+.vacio {
+    background-color: #f9c8c8 !important;
+}
+.pointer {cursor: pointer;}
+
+.contenedor-botones{
+	margin: 1% 0%;
+    width: 100%;
+    padding: 0%;
+}
+
+.col-sm-10 {
+	width: 100%;
+}
+
+.btn_siguiente,.btn_guardar{
+	float: right;
+}

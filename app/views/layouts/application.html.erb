@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Syllabus</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag "boostrap/bootstrap-theme" %>
+  <%= stylesheet_link_tag "boostrap/bootstrap" %>
+  <%= stylesheet_link_tag "boostrap/bootstrap-theme.min" %>
+	<%= stylesheet_link_tag "boostrap/bootstrap.min" %>
+  <%= stylesheet_link_tag "boostrap/font-awesome.min" %>
+  <%= stylesheet_link_tag "encabezado" %>
+
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag "js/bootstrap.min" %>
+  <%= javascript_include_tag "js/jquery-3.3.1.min" %>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+  
+  <%= csrf_meta_tags %>
+    
+</head>
+<body style="margin:0%;">
+
+<section class="body container-fluid" style="padding: 0%;">
+	<%= yield %>
+</section>
+	
+
+</body>
+</html>
+
+
+
+

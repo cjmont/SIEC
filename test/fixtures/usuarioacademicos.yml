@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: MyString
+  clave: MyString
+  rol_id: 
+
+two:
+  email: MyString
+  clave: MyString
+  rol_id: 

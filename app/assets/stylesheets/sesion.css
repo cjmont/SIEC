@@ -1,0 +1,12 @@
+.conts-sesion{
+	background-image: url('Sesion/fondo-sesion.jpg');
+	background-size: cover;
+	width: 100%;
+	height: 100vh;
+}
+#formulario{
+	display: inline-block;
+}
+.vacio {
+    background-color: #f9c8c8 !important;
+}

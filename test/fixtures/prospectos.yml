@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyText
+  linea_negocio: MyString
+  tipo: MyString
+
+two:
+  nombre: MyText
+  linea_negocio: MyString
+  tipo: MyString

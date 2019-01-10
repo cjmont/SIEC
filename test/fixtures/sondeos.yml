@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  estado: MyString
+  usuario_requiriente: 1
+  prospecto_id: 1
+  prospecto_id: 
+
+two:
+  estado: MyString
+  usuario_requiriente: 1
+  prospecto_id: 1
+  prospecto_id: 

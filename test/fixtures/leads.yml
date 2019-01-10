@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  usuario_id: 1
+  sondeo_id: 1
+  usuario_id: 
+  sondeo_id: 
+
+two:
+  usuario_id: 1
+  sondeo_id: 1
+  usuario_id: 
+  sondeo_id: 

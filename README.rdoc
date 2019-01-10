@@ -1,7 +1,8 @@
 == SIEC ==
-<img src="http://cec.espol.edu.ec/siec.png"/>
 
-<img src="http://cec.espol.edu.ec/siec2.png"/>
+http://cec.espol.edu.ec/siec.png
+
+http://cec.espol.edu.ec/siec2.png
 
 Sistema Integral para la gestion de Educacion Continua ESPOL.
 

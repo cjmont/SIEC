@@ -1,4 +1,7 @@
-== SIEC
+== SIEC ==
+<img src="http://cec.espol.edu.ec/siec.png"/>
+
+<img src="http://cec.espol.edu.ec/siec2.png"/>
 
 Sistema Integral para la gestion de Educacion Continua ESPOL.
 
@@ -11,6 +14,7 @@ Este sistema cuenta con lo siguiente:
 * Sistema Financiero, Contable
 
 * Sistema de Gestion para Comunicacion y Marketing
+
 #ASPECTOS TECNICOS
 
 * Ruby On Rails 4.2
